@@ -1,77 +1,12 @@
 <!DOCTYPE html>
-<html> 
+<html>
   <head>
-    <title>Processing.JS inside Webpages: Template</title> 
+    <title>Tycho10101's Html Projects list</title>
   </head>
   <body>
-	<!--This draws the canvas on the webpage -->
-    <canvas id="mycanvas"></canvas> 
+    <div>Hi this is the list of Tycho10101's Html Projects</div>
+    <button onclick="window.location.href='https://tycho10101.github.io/Github-Pages/Scrolling-Game.html';">
+      Click Here
+    </button>
   </body>
- 
-  <!-- Include the processing.js library -->
-  <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
-  <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
-  <script>
-  var programCode = function(processingInstance) {
-    with (processingInstance) {
-      size(400, 400); 
-      frameRate(30);
-        
-      // Paste code from Khan Academy here:
-      var x=-200;
-var y=-200;
-var BlockSize=60;
-var Speed=2;
-
-// Create an object to store all of our keycodes
-var keys = {
-};
-
-    var keyPressed = function(){
-    keys[keyCode] = true;
-    };
-
-    var keyReleased = function(){
-        delete keys[keyCode];
-    };
-
-var draw = function() {
-    //render
-    fill(255, 255, 255);
-    background(255, 255, 255);
-    fill(0, 0, 0);
-    rect(-30-x, -30-y, 60, 60);
-    fill(255, 255, 255);
-    rect(170, 170, 60, 60);
-    fill(0, 0, 0);
-    //UI
-    textSize(25);
-    text('x:', 5, 20);
-    text('y:', 5, 40);
-    text(round(x/BlockSize+(200/BlockSize)), 25, 20);
-    text(0-round(y/BlockSize+(200/BlockSize)), 25, 40);
-    
-    //controll
-    if (keys[87]) {
-        y-=Speed;
-    }
-    if(keys[65])
-    {
-        x-=Speed;
-    }
-    if (keys[83]) {
-        y+=Speed;
-    }
-    if (keys[68]) {
-       x+=Speed;
-    }
-};
-
-    }};
-
-  // Get the canvas that ProcessingJS will use
-  var canvas = document.getElementById("mycanvas"); 
-  // Pass the function to ProcessingJS constructor
-  var processingInstance = new Processing(canvas, programCode); 
-  </script>
 </html>
