@@ -46,6 +46,11 @@ html, body {
   height: 50px;
   length: 50px;
 }
+
+.heading {
+  text-align: center;
+}
+
 .header_button {
   height:55px;
 	background: rgb(163,0,0);
