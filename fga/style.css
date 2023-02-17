@@ -1,15 +1,29 @@
 .button {
-	border-radius: 12px;
-	background: rgb(163,0,0);
-	background: linear-gradient(180deg, rgba(163,0,0,1) 0%, rgba(255,127,127,1) 100%);
+	border-radius: 0px;
+	background: rgb(62, 58, 63);
   border: none;
   color: white;
   padding: 20px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 0px 0px;
+  width: 110px;
+  cursor: pointer;
+}
+
+.select_button {
+	background: rgb(36, 34, 37);
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0px 0px;
+  width: 110px;
   cursor: pointer;
 }
 
@@ -41,7 +55,6 @@ html, body {
     padding: 0;
   }
 
-
 .header_img {
   height: 50px;
   length: 50px;
@@ -68,4 +81,17 @@ html, body {
 .header_multi_button {
   text-align: right;
   display: block;
+}
+
+.side_buttons {
+  float: left;
+  width: 110px;
+  height: 100%;
+  background-color: rgb(62, 58, 63);
+}
+
+.column {
+  float: left;
+  width: calc(100% - 110px);
+  padding: 10px;
 }
