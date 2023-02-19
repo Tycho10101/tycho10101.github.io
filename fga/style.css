@@ -28,11 +28,11 @@
 }
 
 header {
-  background: rgb(163,0,0);
 	background: linear-gradient(180deg, rgba(163,0,0,1) 0%, rgba(255,127,127,1) 100%);
   height: 55px;
   width: 100%;
   margin: 0;
+  position: fixed;
 }
 
 html, body {
@@ -43,6 +43,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Arial;
+  height: 100%;
 }
 
 
@@ -62,6 +63,7 @@ html, body {
 
 .heading {
   text-align: center;
+  font-size: 60px;
 }
 
 .header_button {
@@ -83,15 +85,27 @@ html, body {
   display: block;
 }
 
+.text {
+  float: left;
+  width: calc(100% - 150px);
+  padding: 20px;
+  font-size: 16px;
+  margin-left: 110px;
+}
+
+.small_heading {
+  font-size: 40px;
+}
+
+.download {
+  font-size: 16px;
+}
+
 .side_buttons {
   float: left;
   width: 110px;
-  height: 100%;
+  height: calc(100vh - 55px);
   background-color: rgb(62, 58, 63);
-}
-
-.column {
-  float: left;
-  width: calc(100% - 110px);
-  padding: 10px;
+  position: fixed;
+  top: 55px;
 }
