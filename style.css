@@ -15,7 +15,7 @@
 header {
 	background-color: rbga(0, 0, 0, 0);
   height: 55px;
-  width: 1000px;
+  width: 100%;
   margin: auto;
   top: 0px;
 }
@@ -36,11 +36,27 @@ body {
 
 .blackground {
   background-color: #242225;
-  padding: .5rem;
+  padding: .6rem;
   height: 100%;
   border-radius: 12px;
   border: solid #39363b 5px;
-  
+}
+
+@media (max-width: 1000px) {
+  .blackground {
+    background-color: #242225;
+    padding: .6rem;
+    height: 100%;
+    border-radius: 0px;
+    border: none;
+  }
+  body {
+    margin: auto;
+    color: #F3F3F3;
+    height: 100%;
+    width: 100%;
+    font-family: Arial;
+  }
 }
 
 .header_img {
