@@ -1,6 +1,6 @@
 .button {
-	border-radius: 12px;
-	background-image: url("https://tycho10101.github.io/stripe.png");
+  border-radius: 12px;
+  background-image: url("https://tycho10101.github.io/stripe.png");
   border: none;
   color: white;
   padding: 20px;
@@ -13,49 +13,52 @@
 }
 
 header {
-	background-color: rbga(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
   height: 55px;
   width: 100%;
   margin: auto;
   top: 0px;
 }
 
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
 html {
-  background-image: url("https://tycho10101.github.io/stripe.png");
-  width: 100%;
-  height: 100%;
+	background-image: url("https://tycho10101.github.io/stripe.png");
 }
 
 body {
   margin: auto;
   color: #F3F3F3;
-  height: 100%;
   width: 1000px;
-  font-family: Arial;
 }
 
 .blackground {
   background-color: #242225;
   padding: .6rem;
-  height: 100%;
+  min-height: 100vh; /* Ensures it covers the viewport */
+  width: 100%;
   border-radius: 12px;
   border: solid #39363b 5px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1000px) {
   .blackground {
     background-color: #242225;
     padding: .6rem;
-    height: 100%;
+    min-height: 100vh; /* Adjust for smaller screens */
     border-radius: 0px;
     border: none;
   }
   body {
     margin: auto;
     color: #F3F3F3;
-    height: 100%;
     width: 100%;
-    font-family: Arial;
   }
 }
 
@@ -69,7 +72,7 @@ body {
 
 .header_button {
   background-color: rgba(36, 34, 37, 0);
-  height:55px;
+  height: 55px;
   border: none;
   color: white;
   text-align: center;
