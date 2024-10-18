@@ -40,18 +40,21 @@ body {
 .blackground {
   background-color: #242225;
   padding: .6rem;
-  min-height: 100vh; /* Ensures it covers the viewport */
+  min-height: 100vh;
   width: 100%;
   border-radius: 12px;
   border: solid #39363b 5px;
   box-sizing: border-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 1000px) {
   .blackground {
     background-color: #242225;
     padding: .6rem;
-    min-height: 100vh; /* Adjust for smaller screens */
+    min-height: 100vh;
     border-radius: 0px;
     border: none;
   }
