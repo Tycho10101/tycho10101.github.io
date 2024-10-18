@@ -1,66 +1,70 @@
 .button {
   border-radius: 12px;
-  background-image: url("https://tycho10101.github.io/stripe.png");
+  background: linear-gradient(145deg, #2c2a2a, #1e1a1a);
   border: none;
   color: white;
-  padding: 20px;
+  padding: 18px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(145deg, #383535, #1e1a1a);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5);
+  transform: translateY(-2px);
 }
 
 header {
-  background-color: rgba(0, 0, 0, 0);
   height: 55px;
   width: 100%;
-  margin: auto;
-  top: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #2a2727;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  margin: 0;
 }
 
 html, body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Arial;
-}
-
-html {
-	background-image: url("https://tycho10101.github.io/stripe.png");
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
 }
 
 body {
+  padding-top: 55px;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  max-width: 1000px;
   margin: auto;
-  color: #F3F3F3;
-  width: 1000px;
+  width: 100%;
 }
 
 .blackground {
-  background-color: #242225;
-  padding: .6rem;
+  background-color: #1e1a1a;
+  padding: 1rem;
   min-height: 100vh;
-  width: 100%;
-  border-radius: 12px;
-  border: solid #39363b 5px;
   box-sizing: border-box;
   word-wrap: break-word;
   word-break: break-all;
   overflow-wrap: break-word;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  border-radius: 8px;
 }
 
 @media (max-width: 1000px) {
-  .blackground {
-    background-color: #242225;
-    padding: .6rem;
-    min-height: 100vh;
-    border-radius: 0px;
-    border: none;
-  }
   body {
-    margin: auto;
-    color: #F3F3F3;
     width: 100%;
   }
 }
@@ -71,6 +75,8 @@ body {
 
 .heading {
   text-align: center;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  color: white;
 }
 
 .header_button {
@@ -79,11 +85,15 @@ body {
   border: none;
   color: white;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   margin: 0px 10px;
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.header_button:hover {
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+  transform: translateY(-2px);
 }
 
 .header_multi_button {
