@@ -61,6 +61,7 @@ body {
   overflow-wrap: break-word;
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
   border-radius: 8px;
+  color: white;
 }
 
 @media (max-width: 1000px) {
