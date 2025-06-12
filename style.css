@@ -1,112 +1,114 @@
-/* From Uiverse.io by adamgiebl */ 
-button {
-  --green: #fd1b1b;
-  font-size: 15px;
-  padding: 0.7em 2.7em;
-  letter-spacing: 0.06em;
-  position: relative;
-  font-family: inherit;
-  border-radius: 0.6em;
-  overflow: hidden;
-  transition: all 0.3s;
-  line-height: 1.4em;
-  border: 2px solid var(--green);
-  background: linear-gradient(to right, rgba(253, 27, 27, 0.1) 1%, transparent 40%,transparent 60% , rgba(253, 27, 27, 0.1) 100%);
-  color: var(--green);
-  box-shadow: inset 0 0 10px rgba(253, 27, 27, 0.4), 0 0 9px 3px rgba(253, 27, 27, 0.1);
-  cursor: pointer;
-}
-
-button:hover {
-  color: #ff8282;
-  box-shadow: inset 0 0 10px rgba(253, 27, 27, 0.6), 0 0 9px 3px rgba(253, 27, 27, 0.2);
-}
-
-button:before {
-  content: "";
-  position: absolute;
-  left: -4em;
-  width: 4em;
-  height: 100%;
-  top: 0;
-  transition: transform .4s ease-in-out;
-  background: linear-gradient(to right, transparent 1%, rgba(253, 27, 27, 0.1) 40%,rgba(253, 27, 27, 0.1) 60% , transparent 100%);
-}
-
-button:hover:before {
-  transform: translateX(15em);
-}
-
-header {
-  height: 55px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #212121;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  margin: 0;
-}
-
+/* 2000s style revamp */
 html, body {
-  min-height: 100%;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  background: #0066cc url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+  color: #000;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #121212;
 }
 
 body {
-  padding-top: 55px;
+  background: #cc0000 url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  border: 4px solid #660000;
+  box-shadow: 0 0 30px #0008;
+  padding: 0;
+}
+
+header {
+  height: 60px;
+  background: linear-gradient(to bottom, #ff3333 0%, #660000 100%);
+  border-bottom: 4px solid #fff;
+  box-shadow: 0 4px 12px #0006;
+  text-align: left;
+  padding: 0 20px;
+  z-index: 1000;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #121212;
-  max-width: 1000px;
-  margin: auto;
-  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.blackground {
-  background-color: #1a1a1a;
-  padding: 1rem;
-  min-height: 100vh;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  word-break: break-all;
-  overflow-wrap: break-word;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+button, .header_button {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 0.5em 2em;
   border-radius: 8px;
-  color: white;
+  background: linear-gradient(to bottom, #fff 0%, #f8cccc 50%, #d46a6a 100%);
+  color: #660000;
+  text-shadow: 1px 1px 0 #fff, 0 0 2px #fff;
+  box-shadow: 2px 2px 8px #0004, inset 0 1px 0 #fff;
+  cursor: pointer;
+  margin: 0 8px;
+  transition: background 0.2s;
 }
 
-@media (max-width: 1000px) {
-  body {
-    width: 100%;
-  }
+button:hover, .header_button:hover {
+  background: linear-gradient(to bottom, #f8cccc 0%, #fff 100%);
+  color: #cc0000;
+  border: 2px inset #fff;
 }
 
-.header_img {
-  height: 50px;
+button:before, button:hover:before {
+  display: none !important;
 }
 
 .heading {
   text-align: center;
-  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
-  color: white;
+  color: #fff;
+  font-size: 2.2em;
+  text-shadow: 2px 2px 0 #660000, 0 0 10px #660000;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
 }
 
-.header_button {
-  background-color: rgba(36, 34, 37, 0);
-  height: 55px;
-  text-align: center;
-  font-size: 16px;
-  margin: 0px 10px;
-  cursor: pointer;
+.blackground {
+  background: #ffe6e6;
+  border: 3px ridge #ff3333;
+  color: #660000;
+  padding: 1.5rem;
+  min-height: 400px;
+  box-shadow: 0 0 20px #66000088;
+  border-radius: 10px;
+  margin-top: 30px;
+  font-size: 1.05em;
+}
+
+.header_img {
+  height: 48px;
+  background: transparent;
+  border: none;
+  -webkit-filter: drop-shadow(0px 0px 5px #fff);
+  filter: drop-shadow(0px 0px 5px #fff);
+  padding: 2px;
+  margin-right: 12px;
+  opacity: 0.92;
 }
 
 .header_multi_button {
   text-align: right;
   display: block;
+  margin-right: 10px;
+}
+
+@media (max-width: 1000px) {
+  body {
+    width: 98%;
+    max-width: 98%;
+    margin: 10px auto;
+  }
+  .blackground {
+    padding: 0.5rem;
+  }
+}
+
+header {
+  box-shadow: 0 4px 12px #0006;
+}
+
+hr {
+  border: 0;
+  border-top: 2px groove #ff3333;
+  margin: 20px 0;
 }
