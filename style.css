@@ -1,14 +1,14 @@
 /* 2000s style revamp */
 html, body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  background: #0066cc url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+  background: #0066cc url('https://tycho10101.is-a.dev/diamond-upholstery.png');
   color: #000;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background: #cc0000 url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+  background: #cc0000 url('https://tycho10101.is-a.dev/diamond-upholstery.png');
   max-width: 900px;
   margin: 40px auto 0 auto;
   border: 4px solid #660000;
