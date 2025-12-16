@@ -1,0 +1,67 @@
+name: Build and Deploy Pages
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses:  actions/checkout@v4
+
+      - name: Set up build directory
+        run: |
+          mkdir -p build
+          cp -r .  build/
+          cd build
+          rm -rf . git . github
+
+      - name: Process HTML files
+        run: |
+          cd build
+          
+          # Find all HTML files except template.html
+          for html_file in $(find . -name "*.html" -type f !  -name "template.html"); do
+            echo "Processing $html_file"
+            
+            # Extract content from <div class="blackground">... </div>
+            extracted_content=$(sed -n '/<div class="blackground">/,/<\/div>/p' "$html_file" | sed '1d;$d')
+            
+            # Check if we found content
+            if [ -z "$extracted_content" ]; then
+              echo "Warning: No blackground div found in $html_file"
+              continue
+            fi
+            
+            # Read template.html and substitute {%html%} with extracted content
+            if [ -f "template.html" ]; then
+              # Create temporary file with substituted content
+              sed "/{%html%}/c\\$extracted_content" template.html > "${html_file}.tmp"
+              mv "${html_file}.tmp" "$html_file"
+              echo "Updated $html_file"
+            else
+              echo "Error: template.html not found"
+            fi
+          done
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: none
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'build'
+
+      - name:  Deploy to GitHub Pages
+        id:  deployment
+        uses: actions/deploy-pages@v4
