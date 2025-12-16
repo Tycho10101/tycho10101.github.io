@@ -36,13 +36,14 @@ jobs:
             # Extract content from <div class="blackground">... </div>
             extracted_content=$(cat "$html_file")
 
-            # Initialize head_content to empty
-            head_content=""
+            # Initialize head_content with the default title
+            head_content="<title>Tycho10101's Website</title>"
 
             # Check for a corresponding .head file
             head_file="${html_file}.head"
             if [ -f "$head_file" ]; then
               echo "Found head file: $head_file"
+              # If a .head file exists, use its content
               head_content=$(cat "$head_file")
             fi
 
