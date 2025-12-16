@@ -45,7 +45,7 @@ jobs:
             # Read template.html and substitute {%html%} with extracted content
             if [ -f "template.html" ]; then
               # Create temporary file with substituted content
-              sed "/{%html%}/c\\$extracted_content" template.html > "${html_file}.tmp"
+              awk -v new_content="$extracted_content" '{if($0 ~ /{%html%}/){print new_content} else {print $0}}' template.html > "${html_file}.tmp"
               mv "${html_file}.tmp" "$html_file"
               echo "Updated $html_file"
             else
