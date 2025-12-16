@@ -20,9 +20,9 @@ jobs:
       - name: Set up build directory
         run: |
           mkdir -p build
-          cp -r .  build/
+          cp -r ./* build/
           cd build
-          rm -rf . git . github
+          rm -rf .git .github
 
       - name: Process HTML files
         run: |
