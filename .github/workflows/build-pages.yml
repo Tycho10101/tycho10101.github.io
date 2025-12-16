@@ -34,11 +34,7 @@ jobs:
             echo "Processing $html_file"
             
             # Extract content from <div class="blackground">... </div>
-<<<<<<< HEAD
             extracted_content=$(cat "$html_file")
-=======
-            extracted_content=$html_file
->>>>>>> 3ecfb6341b0615dc599144c876ad3be0acb711ed
             
             # Read template.html and substitute {%html%} with extracted content
             if [ -f "template.html" ]; then
