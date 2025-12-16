@@ -1,0 +1,14 @@
+<title>:c 404 Error</title>
+<style>
+  html, body {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  .title {
+    font-size: 1000%;
+  }
+  .other {
+    font-size: 250%;
+  }
+</style>

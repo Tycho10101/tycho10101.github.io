@@ -2,7 +2,7 @@ name: Build and Deploy Pages
 
 on:
   push:
-    branches: 
+    branches:
       - main
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses:  actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Set up build directory
         run: |
@@ -28,18 +28,38 @@ jobs:
       - name: Process HTML files
         run: |
           cd build
-          
+
           # Find all HTML files except template.html
-          for html_file in $(find . -name "*.html" -type f !  -name "template.html"); do
+          for html_file in $(find . -name "*.html" -type f ! -name "template.html"); do
             echo "Processing $html_file"
-            
+
             # Extract content from <div class="blackground">... </div>
             extracted_content=$(cat "$html_file")
-            
-            # Read template.html and substitute {%html%} with extracted content
+
+            # Initialize head_content to empty
+            head_content=""
+
+            # Check for a corresponding .head file
+            head_file="${html_file}.head"
+            if [ -f "$head_file" ]; then
+              echo "Found head file: $head_file"
+              head_content=$(cat "$head_file")
+            fi
+
+            # Read template.html and substitute {%html%} and {%head%} with content
             if [ -f "template.html" ]; then
               # Create temporary file with substituted content
-              awk -v new_content="$extracted_content" '{if($0 ~ /{%html%}/){print new_content} else {print $0}}' template.html > "${html_file}.tmp"
+              awk -v html_content="$extracted_content" -v head_section="$head_content" '
+                {
+                  if ($0 ~ /{%html%}/) {
+                    print html_content
+                  } else if ($0 ~ /{%head%}/) {
+                    print head_section
+                  } else {
+                    print $0
+                  }
+                }
+              ' template.html > "${html_file}.tmp"
               mv "${html_file}.tmp" "$html_file"
               echo "Updated $html_file"
             else
@@ -57,6 +77,6 @@ jobs:
         with:
           path: 'build'
 
-      - name:  Deploy to GitHub Pages
-        id:  deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
