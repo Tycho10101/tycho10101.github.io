@@ -20,7 +20,8 @@ jobs:
       - name: Set up build directory
         run: |
           mkdir -p build
-          cp -r ./* build/
+          shopt -s extglob
+          cp -r -- !(build) build/
           cd build
           rm -rf .git .github
 
