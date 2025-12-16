@@ -34,13 +34,7 @@ jobs:
             echo "Processing $html_file"
             
             # Extract content from <div class="blackground">... </div>
-            extracted_content=$(sed -n '/<div class="blackground">/,/<\/div>/p' "$html_file" | sed '1d;$d')
-            
-            # Check if we found content
-            if [ -z "$extracted_content" ]; then
-              echo "Warning: No blackground div found in $html_file"
-              continue
-            fi
+            extracted_content=$html_file
             
             # Read template.html and substitute {%html%} with extracted content
             if [ -f "template.html" ]; then
