@@ -68,7 +68,7 @@ button:before, button:hover:before {
   padding: 1.5rem;
   min-height: 400px;
   box-shadow: 0 0 20px #66000088;
-  clip-path: polygon(0 50px,50px 0,calc(100% - 50px) 0,100% 50px,100% 100%,0 100%);
+  clip-path: polygon(0 40px,40px 0,calc(100% - 40px) 0,100% 40px,100% 100%,0 100%);
   margin-top: 30px;
   font-size: 1.05em;
 }
@@ -95,9 +95,6 @@ button:before, button:hover:before {
     width: 98%;
     max-width: 98%;
     margin: 10px auto;
-  }
-  .blackground {
-    padding: 0.5rem;
   }
 }
 
