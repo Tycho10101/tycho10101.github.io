@@ -29,8 +29,8 @@ jobs:
         run: |
           cd build
 
-          # Find all HTML files except template.html
-          for html_file in $(find . -name "*.html" -type f ! -name "template.html"); do
+          # Find all HTML files except template.html and header.html
+          for html_file in $(find . -name "*.html" -type f ! -name "template.html" ! -name "header.html"); do
             echo "Processing $html_file"
 
             # Extract content from <div class="blackground">... </div>
@@ -72,7 +72,8 @@ jobs:
                   }
                 }
               ' template.html > "${html_file}.tmp"
-              mv "${html_file}.tmp" "$html_file"
+              cp "${html_file}.tmp" "$html_file"
+              rm "${html_file}.tmp"
               echo "Updated $html_file"
             else
               echo "Error: template.html not found"
