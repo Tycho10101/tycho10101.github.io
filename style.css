@@ -1,4 +1,3 @@
-/* 2000s style revamp */
 html, body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   background: #0066cc url('https://tycho10101.is-a.dev/diamond-upholstery.png');
@@ -19,7 +18,7 @@ body {
 header {
   height: 60px;
   background: linear-gradient(to bottom, #ff3333 0%, #660000 100%);
-  border-bottom: 4px solid #fff;
+  border-bottom: 4px solid #660000;
   box-shadow: 0 4px 12px #0006;
   text-align: left;
   padding: 0 20px;
@@ -65,12 +64,11 @@ button:before, button:hover:before {
 
 .blackground {
   background: #ffe6e6;
-  border: 3px ridge #ff3333;
   color: #660000;
   padding: 1.5rem;
   min-height: 400px;
   box-shadow: 0 0 20px #66000088;
-  border-radius: 10px;
+  clip-path: polygon(0 50px,50px 0,calc(100% - 50px) 0,100% 50px,100% 100%,0 100%);
   margin-top: 30px;
   font-size: 1.05em;
 }
