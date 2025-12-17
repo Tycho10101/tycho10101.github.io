@@ -47,15 +47,26 @@ jobs:
               head_content=$(cat "$head_file")
             fi
 
-            # Read template.html and substitute {%html%} and {%head%} with content
+            # Read header.html if it exists
+            header_content=""
+            if [ -f "header.html" ]; then
+              echo "Found header.html"
+              header_content=$(cat "header.html")
+            fi
+
+            # Read template.html and substitute {%html%}, {%head%}, and {%header%}
             if [ -f "template.html" ]; then
               # Create temporary file with substituted content
-              awk -v html_content="$extracted_content" -v head_section="$head_content" '
+              awk -v html_content="$extracted_content" \
+                  -v head_section="$head_content" \
+                  -v header_section="$header_content" '
                 {
                   if ($0 ~ /{%html%}/) {
                     print html_content
                   } else if ($0 ~ /{%head%}/) {
                     print head_section
+                  } else if ($0 ~ /{%header%}/) {
+                    print header_section
                   } else {
                     print $0
                   }
