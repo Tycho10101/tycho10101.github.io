@@ -59,7 +59,7 @@ jobs:
               # Create temporary file with substituted content
               awk -v html_content="$extracted_content" \
                   -v head_section="$head_content" \
-                  -v header_section="$header_content" \
+                  -v header_section="$header_content"
                   -v domain="https://tycho10101.is-a.dev/" '
                 {
                   if ($0 ~ /{%html%}/) {
@@ -69,9 +69,10 @@ jobs:
                   } else if ($0 ~ /{%header%}/) {
                     print header_section
                   } else if ($0 ~ /{%domain%}/) {
-                    gsub(/{%domain%}/, domain)
+                    print domain
+                  } else {
+                    print $0
                   }
-                  print $0
                 }
               ' template.html > "${html_file}.tmp"
               cp "${html_file}.tmp" "$html_file"
